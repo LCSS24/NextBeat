@@ -1,11 +1,170 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+* {
+    margin: 0;
+}
+
 body {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: #444444;
     font-family: "Montserrat";
-    color: #0FA248;
+    color: #118b40;
     font-size: 2rem;
     font-weight: 500;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+header {
+    height: 50px;
+    margin-bottom: 50px;
+}
+
+.carte {
+    position: relative;
+    width: 360px;
+    height: 560px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: grab;
+}
+
+.carte img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.layer {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(33,33,33);
+    background: linear-gradient(0deg, rgba(33,33,33,1) 0%, rgba(255,255,255,0) 60%);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+
+.elements {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: end;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 56px;
+    margin-bottom: 15px;
+}
+
+.scroll-container {
+    font-size: 1.5rem;
+    width: 200px;
+    overflow: hidden; /* Cache le texte qui dépasse */
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.scrolling-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scrollText 8s linear infinite;
+}
+
+
+.elements i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    padding: 10px;
+    border: solid 2px #444444;
+    border-radius: 50%;
+    background-color: rgba(33, 33, 33, 0.5);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.elements i:hover {
+    background: linear-gradient(0deg, rgba(0,106,14,1) 0%, rgba(17,139,64,0) 47%);
+}
+
+.imgdefond {
+    position: absolute;
+    filter: blur(200px);
+}
+
+
+
+/* Animations */
+/* Fade out entre les cartes */
+.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Animation de swipe à gauche */
+@keyframes swipeLeft {
+    to {
+        transform: translateX(-300px) rotate(-20deg);
+        opacity: 0;
+    }
+}
+
+/* Animation de swipe à droite */
+@keyframes swipeRight {
+    to {
+        transform: translateX(300px) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+/* Effets de swipe */
+.swipe-right {
+    animation: swipeRight 0.5s ease-out forwards;
+}
+
+.swipe-left {
+    animation: swipeLeft 0.5s ease-out forwards;
+}
+
+
+/* Fade in entre les cartes */
+.fade-in {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animation scroll quand h2 trop long */
+
+@keyframes scrollText {
+    from {
+        transform: translateX(30%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
 }
