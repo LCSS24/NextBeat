@@ -6,16 +6,32 @@
     <title>Next Beat</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
-    <script src="https://kit.fontawesome.com/f0e84571e0.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/f0e84571e0.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
+    <aside class="modale_fond">
+      <div class="modale_like">
+        <h2>Mes likes</h2>
+        <i class="fa-solid fa-xmark"></i>
+        <ul class="liste_like"></ul>
+      </div>
+    </aside>
     <header>
-      <h1>Next Beat</h1>
+      <label for="menuburger"><h1>Next Beat</h1></label>
+      <input type="checkbox" name="menuburger" id="menuburger" hidden />
+      <nav>
+        <ul id="menu">
+          <li id="likes">Mes likes</li>
+          <li id="stats">Mes statistiques</li>
+        </ul>
+      </nav>
     </header>
     <main>
+      <div class="jeu"></div>
     </main>
-    <footer>
-
-    </footer>
+    <footer></footer>
   </body>
 </html>
